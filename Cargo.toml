@@ -1,0 +1,20 @@
+[package]
+name = "slidetown-cli"
+version = "0.1.0"
+edition = "2018"
+authors = ["amPerl"]
+categories = []
+description = "Drift City / Skid Rush files toolkit"
+homepage = "https://github.com/amPerl/slidetown-cli"
+repository = "https://github.com/amPerl/slidetown-cli"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0.38"
+clap = "3.0.0-beta.4"
+encoding_rs = "0.8.26"
+miniz_oxide = "0.4.4"
+nif = "0.4.0"
+serde = { version = "1.0.123", features = ["derive"] }
+serde_json = "1.0.66"
+slidetown = "0.1.0"
