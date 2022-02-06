@@ -3,7 +3,7 @@ name: Build release
 on:
   push:
     branches:
-      - "main"
+      - v*
 
 jobs:
   build:
@@ -26,9 +26,12 @@ jobs:
         with:
           command: build
           args: --release
-
-      - name: Upload slidetown-cli
-        uses: actions/upload-artifact@v2
+          
+      - name: Create release
+        uses: ncipollo/release-action@v1
         with:
-          name: slidetown-cli
-          path: 'target\release\slidetown-cli.exe'
+          name: slidetown-cli ${{ github.ref_name }}
+          artifacts: 'target\release\slidetown-cli.exe'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          generateReleaseNotes: true
